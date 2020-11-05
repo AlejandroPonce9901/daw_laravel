@@ -40,7 +40,6 @@ class proveedorController extends Controller
 
         $mProveedor = new proveedor();
         $mProveedor->fill($request->all());
-        $mProveedor->password = bcrypt($mProveedor->password);
         $mProveedor->save();
 
         Session::flash('message', 'Nuevo Proveedor Registrado!');
@@ -75,7 +74,7 @@ class proveedorController extends Controller
             
         ]);
 
-        $mProveedor = UserEloquent::find($id);
+        $mProveedor = proveedor::find($id);
         $mProveedor->name       = $request->name;
         $mProveedor->apellidoPa       = $request->apellidoPa;
         $mProveedor->apellidoMa       = $request->apellidoMa;
@@ -84,16 +83,18 @@ class proveedorController extends Controller
         $mProveedor->rfc       = $request->rfc;
         $mProveedor->email      = $request->email;
         $mProveedor->updated_at = date('Y-m-d H:i:s');
-        if($request->password != '*****'){
-            $mProveedor->password = bcrypt($request->password);
-        }
         $mProveedor->save();
+        Session::flash('message', 'Proveedor Actualizado!');
+        $modelo = proveedor::find($id);
+        return view('proveedor.show', ["modelo" => $modelo]);
     }
+
+    
 
 
     public function destroy($id)
     {
-        $mProveedor = roles::find($id);
+        $mProveedor = proveedor::find($id);
         $mProveedor->delete();
         Session::flash('message', 'Proveedor mandado a chingar a su madre!');
         return Redirect::to('proveedor');

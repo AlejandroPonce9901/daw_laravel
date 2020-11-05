@@ -1,13 +1,13 @@
 @extends('layouts.internal')
 @section('content')
 
-<a href="{{ URL::to('users') }}">Regresar</a> <br> <br>
+<a href="{{ URL::to('proveedor') }}">Regresar</a> <br> <br>
 
-<h1>Formulario de creación</h1>
+<h1>Registrar un nuevo Proveedor</h1>
 
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::open(array('url' => 'users')) }}
+{{ Form::open(array('url' => 'proveedor')) }}
 <div class="row">
 
     <div class="form-group col-md-4">
@@ -29,42 +29,32 @@
     </div>
 
     <div class="form-group col-md-4">
-        {{ Form::label('direccion', 'Domicilio') }}
-        {{ Form::text('direccion', Request::old('direccion'), 
-           array('class' => 'form-control', 'required'=>true)) }}
-    </div>
-
-    <div class="form-group col-md-4">
         {{ Form::label('telefono', 'Teléfono') }}
         {{ Form::number('telefono', Request::old('number'), 
            array('class' => 'form-control', 'required'=>true)) }}
     </div>
 
     <div class="form-group col-md-4">
-        {{ Form::label('fechaNaci', 'Fecha de Nacimiento') }}
-        {{ Form::date('fechaNaci', Request::old('fechaNaci'), 
+        {{ Form::label('empresa', 'Empresa') }}
+        {{ Form::text('empresa', Request::old('empresa'), 
            array('class' => 'form-control', 'required'=>true)) }}
     </div>    
+
+    <div class="form-group col-md-4">
+        {{ Form::label('rfc', 'RFC') }}
+        {{ Form::text('rfc', Request::old('rfc'), 
+           array('class' => 'form-control', 'required'=>true)) }}
+    </div> 
 
     <div class="form-group col-md-4">
         {{ Form::label('email', 'Correo electrónico') }}
         {{ Form::email('email', Request::old('email'), array('class' => 'form-control', 'required'=>true)) }}
     </div>
 
-    <div class="form-group col-md-4">
-        {{ Form::label('password', 'Contraseña') }}
-        {{ Form::text('password', Request::old('password'), array('class' => 'form-control', 'required'=>true)) }}
-    </div>
-
-    <div class="form-group col-md-3">
-        {{ Form::label('roles_id', 'Puesto') }}
-        {{ Form::select('roles_id', $tableRoles, Request::old('roles_id'),  
-           array('class' => 'form-control')) }}
-    </div>
-    
+  
 
     <div class="col-md-12">
-        {{ Form::submit('Registrar usuario', array('class' => 'btn btn-primary')) }}
+        {{ Form::submit('Registrar Proveedor', array('class' => 'btn btn-primary')) }}
     </div>
 
 </div>

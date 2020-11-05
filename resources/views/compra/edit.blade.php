@@ -45,7 +45,7 @@
 
 </div>
 
-    {{ Form::submit('Actualizar usuario', array('class' => 'btn btn-primary')) }}
+    {{ Form::submit('Actualizar compra', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
 

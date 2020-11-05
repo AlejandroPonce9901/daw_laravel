@@ -6,24 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateVenta extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    
     public function up()
     {
         Schema::create('venta', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_clientes')->default(0);
+            $table->unsignedBigInteger('id_producto')->default(0);
+            $table->date('fecha')->nullable();
+            $table->decimal('costo',13,2)->default(0)->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+   
     public function down()
     {
         Schema::dropIfExists('venta');

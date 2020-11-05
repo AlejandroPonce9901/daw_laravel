@@ -1,51 +1,50 @@
 @extends('layouts.internal')
 @section('content')
 
-<a href="{{ route('compra.show', $modelo->id) }}">Regresar</a> <br> <br>
+<a href="{{ route('venta.show', $modelo->id) }}">Regresar</a> <br> <br>
 
-<h1>Formulario de actualización</h1>
+<h1>Modificar Venta</h1>
 
 {{ HTML::ul($errors->all()) }}
 
-{{ Form::model( $modelo, array('route' => array('compra.update', $modelo->id), 'method' => 'PUT') ) }}
+{{ Form::model( $modelo, array('route' => array('venta.update', $modelo->id), 'method' => 'PUT') ) }}
 
 <div class="row">
 
-    <div class="form-group col-md-4">
-        {{ Form::label('name', 'Nombre del Producto') }}
-        {{ Form::text('name', Request::old('name'), 
-           array('class' => 'form-control', 'required'=>true)) }}
+    <div class="form-group col-md-3">
+        {{ Form::label('id_clientes', 'ID del Cliente') }}
+        {{ Form::select('id_clientes', $tableClientes, Request::old('id_clientes'),  
+           array('class' => 'form-control')) }}
+    </div>
+
+    <div class="form-group col-md-3">
+        {{ Form::label('id_producto', 'Id del Producto') }}
+        {{ Form::select('id_producto', $tableProveedor, Request::old('id_producto'),  
+           array('class' => 'form-control')) }}
     </div>
 
     <div class="form-group col-md-4">
-        {{ Form::label('costo', 'Costo del Producto Comprado') }}
+        {{ Form::label('costo', 'Costo del Producto ventado') }}
         {{ Form::number('costo', Request::old('costo'), 
            array('class' => 'form-control', 'required'=>true, 'step'=>'.01')) }}
     </div>
 
     <div class="form-group col-md-4">
-        {{ Form::label('fecha', 'Fecha de la Compra') }}
+        {{ Form::label('fecha', 'Fecha de la venta') }}
         {{ Form::date('fecha', Request::old('fecha'), 
            array('class' => 'form-control', 'required'=>true)) }}
     </div>  
 
-    <div class="form-group col-md-3">
-        {{ Form::label('cproducto_id', 'Categoría del producto') }}
-        {{ Form::select('cproducto_id', $tablecProductos, Request::old('cproducto_id'),  
-           array('class' => 'form-control')) }}
-    </div>
-
-    <div class="form-group col-md-3">
-        {{ Form::label('id_proveedor', 'Id del Proveedor') }}
-        {{ Form::select('id_proveedor', $tableProveedor, Request::old('id_proveedor'),  
-           array('class' => 'form-control')) }}
-    </div>
+    
     
 
+    <div class="col-md-12">
+        {{ Form::submit('Registrar venta', array('class' => 'btn btn-primary')) }}
+    </div>
 
 </div>
 
-    {{ Form::submit('Actualizar usuario', array('class' => 'btn btn-primary')) }}
+    {{ Form::submit('Actualizar venta', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
 

@@ -50,7 +50,9 @@
                         @else
                             
                             
-                            
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('venta.index') }}">Ventas</a>
+                            </li>
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('clientes.index') }}">Clientes</a>
                             </li>    

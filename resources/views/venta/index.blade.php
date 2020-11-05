@@ -1,24 +1,24 @@
 @extends('layouts.internal')
 @section('content')
 
-<a href="{{route('compra.create')}}">Registrar una Compra</a> <br> <br>
+<a href="{{route('venta.create')}}">Registrar una venta</a> <br> <br>
 @if(Session::has('message'))
       {{ Session::get('message') }} <br><br>
 @endif
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Id de Compra</th>
-            <th>Fecha de Compra</th>
+            <th>Id de venta</th>
+            <th>Fecha de venta</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($tableCompra as $rowCompra)
+        @foreach($tableVenta as $rowVenta)
             <tr>
                 <td>
-                    <a href="{{route('compra.show', $rowCompra->id)}}">{{$rowCompra->id}}</a>
+                    <a href="{{route('venta.show', $rowVenta->id)}}">{{$rowVenta->id}}</a>
                 </td>
-                <td>{{$rowCompra->fecha}}</td>
+                <td>{{$rowVenta->fecha}}</td>
             </tr>
         @endforeach
     </tbody>

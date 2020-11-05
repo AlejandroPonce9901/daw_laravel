@@ -2,83 +2,101 @@
 
 namespace App\Http\Controllers;
 
+use Session;
+Use Redirect;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\venta;
+use App\Models\producto;
+use App\Models\clientes;
+
 
 class ventaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    
     public function index()
     {
-        //
+        $tableVenta = venta::all();
+        return view('venta.index', ["tableVenta" =>  $tableVenta ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
-        //
+        $tableClientes = clientes::orderBy('id')->get()->pluck('id','id');
+        $tableProducto = Producto::orderBy('id')->get()->pluck('id','id');
+        return view('venta.create', [ 'tableClientes' => $tableClientes], ['tableProducto' => $tableProducto]);
+    
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
-        //
-    }
+        $validatedData = $request->validate([
+            'id_clientes' => 'required|exists:clientes,id',
+            'id_producto' => 'required|exists:Producto,id',
+            'costo' => 'required|numeric|min:0',
+            'fecha' => 'required',
+            
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+        $mVenta = new venta($request->all());
+        $mVenta->save();
+        Session::flash('message', 'Venta Registrada!');
+        return Redirect::to('venta');
+    }
+    
+
+  
     public function show($id)
     {
-        //
+        $modelo = venta::find($id);
+        return view('venta.show', ["modelo" => $modelo]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit($id)
     {
-        //
+        $modelo = venta::find($id);
+        $tableClientes = clientes::orderBy('id')->get()->pluck('id','id');
+        $tableProducto = Producto::orderBy('id')->get()->pluck('id','id');
+        return view('venta.edit', ["modelo" => $modelo, 'tableClientes' => $tableClientes,'tableProducto' => $tableProducto]);
+    
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'id_clientes' => 'required|exists:clientes,id',
+            'id_producto' => 'required|exists:Producto,id',
+            'costo' => 'required|numeric|min:0',
+            'fecha' => 'required',
+            
+        ]);
+
+        $mVenta = venta::find($id);
+        $mVenta->id_clientes       = $request->id_clientes;
+        $mVenta->id_producto       = $request->id_producto;
+        $mVenta->costo       = $request->costo;
+        $mVenta->fecha       = $request->fecha;
+        
+        $mVenta->save();
+
+        // Regresa a lista de usuario
+        Session::flash('message', 'venta actualizada!');
+        $tableVenta = venta::orderBy('name')->get()->pluck('name','id');
+        return view('venta.show', ["modelo" => $mVenta, 'tableVenta' => $tableVenta]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function destroy($id)
     {
-        //
+        $mVenta = venta::find($id);
+        $mVenta->delete();
+
+        Session::flash('message', 'Venta eliminada!');
+        return Redirect::to('venta');
     }
 }

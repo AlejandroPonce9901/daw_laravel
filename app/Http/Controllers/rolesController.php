@@ -38,7 +38,7 @@ class rolesController extends Controller
         $mRoles->save();
 
         // Regresa a lista de productos
-        Session::flash('message', 'Rol creado!');
+        Session::flash('message', 'Puesto creado!');
         return Redirect::to('roles');
     }
 
@@ -68,7 +68,7 @@ class rolesController extends Controller
 
         $mRoles->save();
 
-        Session::flash('message', 'Rol actualizado!');
+        Session::flash('message', 'Puesto actualizado!');
         return Redirect::to('roles');
     }
 
@@ -77,7 +77,7 @@ class rolesController extends Controller
     {
         $mRoles = roles::find($id);
         $mRoles->delete();
-        Session::flash('message', 'Rol eliminado!');
+        Session::flash('message', 'Puesto eliminado!');
         return Redirect::to('roles');
     }
 }

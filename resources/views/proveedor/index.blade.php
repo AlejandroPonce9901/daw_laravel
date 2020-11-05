@@ -9,6 +9,7 @@
     <thead>
         <tr>
             <th>Nombre</th> 
+            <th>ID</th>
             <th>Correo</th>
         </tr>
     </thead>
@@ -18,6 +19,7 @@
                 <td>
                     <a href="{{route('proveedor.show', $rowProveedor->id)}}">{{$rowProveedor->name}} {{$rowProveedor->apellidoPa}}</a>
                 </td>
+                <td>{{$rowProveedor->id}}</td>
                 <td>{{$rowProveedor->email}}</td>
 
             </tr>

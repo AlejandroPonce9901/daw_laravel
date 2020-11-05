@@ -45,20 +45,20 @@
     </div>
 
     <div class="form-group col-md-3">
-        {{ Form::label('cproducto_id', 'Categoría del producto') }}
-        {{ Form::select('cproducto_id', $tablecProductos, Request::old('cproducto_id'),  
-           array('class' => 'form-control')) }}
-    </div>
-
-    <div class="form-group col-md-3">
         {{ Form::label('venta', 'Disponible para venta') }} <br>
         {{ Form::radio('venta', 1, (Request::old('venta') == 1), ['id'=>'radioSi', 'class'=>'', 'required'=>true]) }} Sí <br>
         {{ Form::radio('venta', 0, (Request::old('venta') == 0), ['id'=>'radioNo', 'class'=>'', 'required'=>true]) }} No
     </div>
 
     <div class="form-group col-md-3">
+        {{ Form::label('cproducto_id', 'Categoría del producto') }}
+        {{ Form::select('cproducto_id', $tablecProductos, Request::old('cproducto_id'),  
+           array('class' => 'form-control')) }}
+    </div>
+
+    <div class="form-group col-md-3">
         {{ Form::label('id_compra', 'Compra del Producto') }}
-        {{ Form::select('id_compra', $tablecProductos, Request::old('id_compra'),  
+        {{ Form::select('id_compra', $tableCompra, Request::old('id_compra'),  
            array('class' => 'form-control')) }}
     </div>
 

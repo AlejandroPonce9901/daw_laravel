@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Producto;
 use App\Models\cProducto;
+use App\Models\compra;
 
 class ProductoController extends Controller
 {
@@ -24,7 +25,8 @@ class ProductoController extends Controller
     public function create()
     {
         $tablecProductos = cProducto::orderBy('nombre')->get()->pluck('nombre','id');
-        return view('productos.create',[ 'tablecProductos' => $tablecProductos ]);
+        $tableCompra = compra::orderBy('id')->get()->pluck('id', 'id');
+        return view('productos.create',[ 'tablecProductos' => $tablecProductos, 'tableCompra' => $tableCompra]);
     }
 
     public function store(Request $request)
@@ -34,19 +36,18 @@ class ProductoController extends Controller
         // la cual contiene las validaciones realizadas
         $validatedData = $request->validate([
             'nombre' => 'required|min:1|max:100',
+            'cproducto_id' => 'required|exists:cproducto,id',
+            'id_compra' => 'required',
             'descripcion' => 'required|min:1|max:200',
             'precio' => 'required|numeric|min:0',
-            'stock' => 'required|numeric|min:0',
-            'cproducto_id' => 'required|exists:cproducto,id'
+            'marca' => 'required|min:1|max:100',
+            'modelo' => 'required|min:1|max:100',
+            'venta' => 'required',
+            
+            
         ]);
  
         $mProducto = new Producto($request->all());
-        //if($request->activo){
-        //    $mProducto->activo = true; 
-        //} else {
-        //    $mProducto->activo = false;
-        //}
-
         $mProducto->save();
 
         // Regresa a lista de productos
@@ -64,26 +65,37 @@ class ProductoController extends Controller
     {
         $modelo = Producto::find($id);
         $tablecProductos = cProducto::orderBy('nombre')->get()->pluck('nombre','id');
-        return view('productos.edit', ["modelo" => $modelo, "tablecProductos"=>$tablecProductos]);
+        $tableCompra = compra::orderBy('id')->get()->pluck('id', 'id');
+        return view('productos.edit', ["modelo" => $modelo, 'tablecProductos' => $tablecProductos,'tableCompra' => $tableCompra]);
     }
 
     public function update($id, Request $request)
     {
         $validatedData = $request->validate([
-            'nombre' => 'required|min:20|max:100',
-            'descripcion' => 'required|min:50|max:200',
+            'nombre' => 'required|min:1|max:100',
+            'cproducto_id' => 'required|exists:cproducto,id',
+            'id_compra' => 'required|exists:compra,id',
+            'descripcion' => 'required|min:1|max:200',
             'precio' => 'required|numeric|min:0',
-            'stock' => 'required|numeric|min:0',
-            'cproducto_id' => 'required|exists:cproducto,id'
+            'marca' => 'required|min:1|max:100',
+            'modelo' => 'required|min:1|max:100',
+            'venta' => 'required',
+            
+
+    
+            
         ]);
 
         $mProducto = Producto::find($id);
-        $mProducto->fill($request->all());
-        //if($request->activo){
-        //    $mProducto->activo = true; 
-        //} else {
-        //    $mProducto->activo = false;
-        //}
+        $mProducto->nombre       = $request->nombre;
+        $mProducto->cproducto_id       = $request->cproducto_id;
+        $mProducto->id_compra       = $request->id_compra;
+        $mProducto->descripcion       = $request->descripcion;
+        $mProducto->precio       = $request->precio;
+        $mProducto->marca       = $request->marca;
+        $mProducto->modelo       = $request->modelo;
+        $mProducto->venta       = $request->venta;
+
 
         $mProducto->save();
 

@@ -10,6 +10,7 @@
         <tr>
             <th>Nombre</th>
             <th>Categoría</th>
+            <th>ID</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
                     <a href="{{route('productos.show', $rowProducto->id)}}">{{$rowProducto->nombre}}</a>
                 </td>
                 <td>{{$rowProducto->categoria_producto}}</td>
+                <td>{{$rowProducto->id}}</td>
             </tr>
         @endforeach
     </tbody>

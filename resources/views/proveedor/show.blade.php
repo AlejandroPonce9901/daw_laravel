@@ -17,6 +17,7 @@
         </tr>
     </thead>
     <tbody>
+            <tr><td> ID </td> <td>{{$modelo->id}}</td></tr>
             <tr><td> Nombre </td> <td>{{$modelo->name}}</td></tr>
             <tr><td> Apellido Paterno </td> <td>{{$modelo->apellidoPa}}</td></tr>
             <tr><td> Apellido Materno </td> <td>{{$modelo->apellidoMa}}</td></tr>

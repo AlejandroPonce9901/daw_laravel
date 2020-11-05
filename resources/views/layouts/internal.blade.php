@@ -52,11 +52,11 @@
                             
                             
                             <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('productos.index') }}">Productos</a>
-                            </li>
-                            
-                            <li class="nav-item">
                                     <a class="nav-link" href="{{ route('clientes.index') }}">Clientes</a>
+                            </li>    
+                        
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('productos.index') }}">Productos</a>
                             </li>
 
                             <li class="nav-item">

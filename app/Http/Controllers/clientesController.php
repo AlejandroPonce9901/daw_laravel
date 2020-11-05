@@ -13,8 +13,8 @@ class clientesController extends Controller
     
     public function index()
     {
-        $tableClientes = clients::all();
-        return view('clients.index', ["tableClientes" =>  $tableClientes ]);
+        $tableClientes = clientes::all();
+        return view('clientes.index', ["tableClientes" =>  $tableClientes ]);
     }
 
     

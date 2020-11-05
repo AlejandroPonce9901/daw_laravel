@@ -11,12 +11,18 @@ class Producto extends Model
 
     protected $table = 'producto';
 
-    protected $fillable = ['nombre', 'stock', 'precio', 'descripcion', 'cproducto_id', 'venta'];
+    protected $fillable = ['nombre', "id_compra", "cproducto_id", "descripcion", "marca", "modelo", "precio", "venta",];
 
     public function getcProducto()
     {
                             // Modelo de referencia, campo local, campo foráneo 
         return $this->belongsTo('App\Models\cProducto','cproducto_id','id');
+    }
+
+    public function getCompra()
+    {
+                            // Modelo de referencia, campo local, campo foráneo 
+        return $this->belongsTo('App\Models\compra','id_compra','id');
     }
 
 }

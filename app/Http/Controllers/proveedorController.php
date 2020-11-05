@@ -33,7 +33,7 @@ class proveedorController extends Controller
             'apellidoMa' => 'required|min:2|max:10',
             'empresa' => 'required|min:2|max:10',
             'telefono' => 'required',
-            'rfc' => 'required|min:2|max:10',
+            'rfc' => 'required|min:2|max:100',
             'email' => 'required|email',           
             
         ]);
@@ -69,7 +69,7 @@ class proveedorController extends Controller
             'apellidoMa' => 'required|min:2|max:10',
             'empresa' => 'required|min:2|max:10',
             'telefono' => 'required',
-            'rfc' => 'required|min:2|max:10',
+            'rfc' => 'required|min:2|max:100',
             'email' => 'required|email',           
             
         ]);

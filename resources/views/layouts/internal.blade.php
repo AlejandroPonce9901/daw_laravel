@@ -48,6 +48,17 @@
                                     <a class="nav-link" href="{{ route('productos.index') }}">Productos</a>
                             </li>
                         @else
+                            
+                            
+                            
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('productos.index') }}">Productos</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('compra.index') }}">Compras</a>
+                            </li>
+                            
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
                             </li>
@@ -55,13 +66,10 @@
                                     <a class="nav-link" href="{{ route('proveedor.index') }}">Proveedores</a>
                             </li>
                             <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('roles.index') }}">Puestos</a>
-                            </li>
-                            <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('productos.index') }}">Productos</a>
-                            </li>
-                            <li class="nav-item">
                                     <a class="nav-link" href="{{ route('cproducto.index') }}">Categoría de Productos</a>
+                            </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('roles.index') }}">Puestos</a>
                             </li>
 
                             <li class="nav-item dropdown">

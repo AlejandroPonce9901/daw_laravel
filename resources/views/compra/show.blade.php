@@ -21,7 +21,7 @@
             <tr><td> Nombre del Producto Comprado </td> <td>{{$modelo->name}}</td></tr>
             <tr><td> Fecha de la Compra </td> <td>{{$modelo->fecha}}</td></tr>
             <tr><td> Costo del Producto </td> <td>{{$modelo->costo}}</td></tr>
-            <tr><td> Proveedor </td> <td>@if($modelo->getProveedor){{$modelo->getProveedor->nombre}}@endif</td></tr>
+            <tr><td> Proveedor </td> <td>@if($modelo->getProveedor){{$modelo->getProveedor->name}}@endif</td></tr>
             <tr><td> Categoría del Producto </td> <td>{{$modelo->getcProducto->nombre}}</td></tr>
     </tbody>
 </table>

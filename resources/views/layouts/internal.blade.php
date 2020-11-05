@@ -52,6 +52,9 @@
                                     <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
                             </li>
                             <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('proveedor.index') }}">Proveedores</a>
+                            </li>
+                            <li class="nav-item">
                                     <a class="nav-link" href="{{ route('roles.index') }}">Puestos</a>
                             </li>
                             <li class="nav-item">

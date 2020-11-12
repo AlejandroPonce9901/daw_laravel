@@ -1,0 +1,126 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+	font-family: arial;
+}
+body{
+	background:url('../img/fondo_login.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 100vh;
+	display: flex;
+}
+form{
+	margin: auto;
+	width: 50%;
+	max-width: 400px;
+	background: #fff;
+	padding: 30px;
+	/*borde de la parte de arriba*/
+	border-top: 20px solid #4a91b1;
+	border-radius: 10px;
+
+	/*ajustar la parte de nombre de 
+	usuario y contraseña*/
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+}
+h2{
+	text-align: center;
+	margin-bottom: 25px;
+	/*color iniciar sesion*/
+	color: #14292b;
+	font-weight: 300;
+	letter-spacing: 3px;
+	word-spacing: 4px;
+}
+/*cuadros para meter nombre y contraseña*/
+form .contenedor{
+	width: 100%;
+	margin-bottom: 12px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+/*fondo de los iconos de usuario y contraseña*/
+form .contenedor .con-icon{
+	background: #4a91b1;
+
+	flex-grow: 1;
+	
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+/*color de los iconos de usuario y contraseña*/
+form .contenedor .con-icon span{
+	padding: 8px;
+	color: #000;
+	/*tamaño de icono de usuario y password*/
+	font-size: 20px;
+}
+/*contorno de usuario y password*/
+form .contenedor .con-input{
+	background: #4a91b1;
+	padding: 1px;
+
+	flex-grow: 12;
+
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+form .contenedor .con-input input{
+	width: 100%;
+	padding: 8px;
+	border: none;
+}
+/*Diseño del  boton INGRESAR*/
+input[type="submit"]{
+	width: 50%;
+	background: linear-gradient(#3b97e2,#8fc9e2);
+	padding: 6px;
+	margin-bottom: 12px;
+	font-size: 16px;
+	letter-spacing: 2px;
+	border: 0;
+	color: #fff;
+	opacity:0.8;
+	cursor: pointer;
+	border-radius: 4px;
+}
+input[type="submit"]:hover{
+	opacity:1;
+}
+input[type="submit"]:active{
+	transform: scale(0.95);
+}
+form .otros{
+	padding: 10px;
+
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+form .otros p{
+	font-size: 15px;
+	color: #549C86;
+}
+/*conf de icono de HOME*/
+form .otros a span{
+	font-size: 17px;
+	color: #343a38;
+}
+form .otros a{
+	text-decoration: none;
+	font-size: 14px;
+	color: #5F6EA0;
+}
+form .otros a:hover, form .otros a span:hover{
+	color: #31427B;
+	transition: 1s;
+}s

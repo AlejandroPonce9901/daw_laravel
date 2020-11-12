@@ -18,7 +18,7 @@
 
     <div class="form-group col-md-3">
         {{ Form::label('id_producto', 'Id del Producto') }}
-        {{ Form::select('id_producto', $tableProveedor, Request::old('id_producto'),  
+        {{ Form::select('id_producto', $tableProducto, Request::old('id_producto'),  
            array('class' => 'form-control')) }}
     </div>
 

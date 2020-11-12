@@ -1,0 +1,32 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+	font-family: arial;
+}
+.section{
+	width: 100%;
+	min-height: 80vh;
+	background: url('../img/.jpg');
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+.section .texto{
+	width: 70%;
+	padding: 30px;
+}
+.section .texto h1{
+	font-size: 70px;
+	font-weight: 300;
+	text-align: center;
+	letter-spacing: 7px;
+	word-spacing: 5px;
+	color: #001C71;
+}
+.section .texto p{
+	font-size: 22px;
+	text-align: justify;
+	word-spacing: 3px;
+	color: #001C71;
+}

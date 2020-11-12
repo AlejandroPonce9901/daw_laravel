@@ -86,7 +86,7 @@ class ventaController extends Controller
 
         // Regresa a lista de usuario
         Session::flash('message', 'venta actualizada!');
-        $tableVenta = venta::orderBy('name')->get()->pluck('name','id');
+        $tableVenta = venta::orderBy('id')->get()->pluck('id','id');
         return view('venta.show', ["modelo" => $mVenta, 'tableVenta' => $tableVenta]);
     }
 
@@ -95,7 +95,6 @@ class ventaController extends Controller
     {
         $mVenta = venta::find($id);
         $mVenta->delete();
-
         Session::flash('message', 'Venta eliminada!');
         return Redirect::to('venta');
     }

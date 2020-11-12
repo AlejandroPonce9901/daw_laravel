@@ -1,0 +1,37 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.centrar{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	padding: 20px;
+}
+table, th, td {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+th{
+	background: #00FFB2;
+	color: #549C86;
+}
+th, td {
+  padding: 15px;
+}
+.btn{
+	display: flex;
+	justify-content: flex-end;
+	padding: 20px;
+}
+.btn a{
+	text-decoration: none;
+	padding: 10px 20px;
+	border-radius: 4px;
+	background: red;
+	color: #fff;
+	font:18px arial;
+	font-weight: 300;
+}

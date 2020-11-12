@@ -10,6 +10,7 @@
         <tr>
             <th>Nombre</th> 
             <th>Correo</th>
+            <th>ID Cliente</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
                     <a href="{{route('clientes.show', $rowClientes->id)}}">{{$rowClientes->name}} {{$rowClientes->apellidoPa}}</a>
                 </td>
                 <td>{{$rowClientes->email}}</td>
+                <td>{{$rowClientes->id}}</td>
 
             </tr>
         @endforeach
